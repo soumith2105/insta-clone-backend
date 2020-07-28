@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for objects in posts %}
+        {% include "posts/list-inline.html" with objects=objects truncate=True detail=False %}
+    {% endfor %}
+{% endblock %}

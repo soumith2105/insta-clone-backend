@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST">
+    {% csrf_token %}
+    <h4>Are you sure you want to delete</h4>
+    <h6>{{ object.caption }}</h6>
+    <button class="btn btn-danger">Yes, delete</button>
+</form>
+{% endblock %}

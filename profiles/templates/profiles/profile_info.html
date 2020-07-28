@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="card">
+        <div class="card-body text-black mb-3">
+            <h5 class="card-title">{{ profile.username }}</h5>
+                <p class="card-text">{{ profile.full_name }}</p>
+                <small>{{ profile.email_id }}</small><br><br>
+                <p class="card-text">Mobile Number : {{ profile.mobile_number }}</p>
+                <p class="card-text">Date of Birth : {{ profile.date_of_birth }}</p>
+                <p class="card-text">Bio : {{ profile.bio }}</p>
+                {% if request.user.username == profile.username %}
+                    <a href="/profile/edit"><button class="btn btn-secondary">Update Info</button></a>
+                    <a href="/profile/password/change/"><button class="btn btn-secondary">Change Your Password</button></a>
+                {% endif %}
+        </div>
+    </div>
+{% endblock %}

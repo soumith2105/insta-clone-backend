@@ -1,0 +1,18 @@
+<div class="card">
+    <div class="card-body text-white bg-dark mb-3">
+        {% load humanize %}
+        <h5 class="card-title">{{ objects.user }}</h5>
+        <small class="disabled">{{ objects.published_date|naturaltime }}</small>
+        {% if truncate %}
+            <p class="card-text">{{ objects.caption|linebreaks|truncatewords:15 }}</p>
+        {% else %}
+            <p>{{ objects.caption|linebreaks }}</p>
+        {% endif %}
+        {% if not detail %}
+            <a href="{{ objects.get_absolute_url }}">View</a>
+        {% elif objects.user == request.user %}
+            <a href="{{ object.get_edit_url }}"><button class="btn btn-secondary">Edit</button></a>
+            <a href="{{ object.get_delete_url }}"><button class="btn btn-danger">Delete</button></a>
+        {% endif%}
+    </div>
+</div>
